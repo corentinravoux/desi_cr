@@ -91,7 +91,7 @@ def get_spectra(spectra_name,zbest_name,lambda_width,qso_target = True,
 
 def fig_mgii_line(target_id,redshift_redrock,flux,ivar_flux,model_flux,
                   wavelength,lambda_width,add_linear_term = True,
-                  gaussian_smoothing_fit=None):
+                  gaussian_smoothing_fit=None,mask_mgii=None):
 
     mgii_peak_1 = 2803.5324
     mgii_peak_2 = 2796.3511
@@ -106,6 +106,8 @@ def fig_mgii_line(target_id,redshift_redrock,flux,ivar_flux,model_flux,
     for i in range(len(flux)):
         centered_wavelenght = wavelength - mgii_peak_observed_frame[i]
         mask_wave = np.abs(centered_wavelenght) < lambda_width/2
+        if(mask_mgii) is not None:
+            mask_wave &= np.abs(centered_wavelenght) > mask_mgii/2
         flux_centered = flux[i][mask_wave]
         model_flux_centered = model_flux[i][mask_wave]
         sigma_flux_centered = (1 /np.sqrt(ivar_flux[i]))[mask_wave]
