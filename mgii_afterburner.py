@@ -233,6 +233,7 @@ def save_fit(target_id,fit_results,name_fits,header=None):
     a.write(h,header=header)
 
 
+### Other useful function. Abose is what what use for the afterburner on RR
 
 
 
