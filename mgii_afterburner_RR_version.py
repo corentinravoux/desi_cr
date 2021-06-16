@@ -145,7 +145,8 @@ def get_spectra(spectra_name,
                           file.
         lambda_width (float): The width in wavelength (in Angstrom) considered
                               for the fitting arount the MgII peak
-        index_to_fit (integer list): Specify the spectra indexes to fit
+        index_to_fit (boolean numpy array): boolean array of size 500 specifing
+                                            which spectra have to be used
         add_linear_term (boolean): Add a linear term to the Gaussian peak term
                                    to fit the continuum.
         template_dir (str): If the redrock template variable is not loaded by
@@ -165,8 +166,9 @@ def get_spectra(spectra_name,
         model_flux (numpy array): Array containing the best fit redrock model
                                   for every object to fit
         wavelength (numpy array): Array containing the wavelength
-        index_with_fit (numpy array): contains the index of the spectra file on
-                                      which the MgII fitter was applied
+        index_with_fit (boolean numpy array): boolean array of index_to_fit size
+                                              masking index where mgII fitter is
+                                              not apply
     """
     spectra = read_spectra(spectra_name)
     spectra = spectra.select(targets=spectra.fibermap["TARGETID"][index_to_fit])
@@ -380,7 +382,8 @@ def mgii_fitter(spectra_name,
                           file.
         lambda_width (float): The width in wavelength (in Angstrom) considered
                               for the fitting arount the MgII peak
-        index_to_fit (integer list): Specify the spectra indexes to fit
+        index_to_fit (boolean numpy array): boolean array of size 500 specifing
+                                            which spectra have to be used
         add_linear_term (boolean): Add a linear term to the Gaussian peak term
                                    to fit the continuum.
         template_dir (str): If the redrock template variable is not loaded by
@@ -405,8 +408,11 @@ def mgii_fitter(spectra_name,
                                         index_with_fit which indicates object
                                         considered by redrock as galaxies and
                                         by MgII fitter as QSO
-        index_with_fit (numpy array): contains the index of the spectra file on
-                                      which the MgII fitter was applied
+        index_with_fit (boolean numpy array): boolean array of index_to_fit size
+                                              masking index where mgII fitter is
+                                              not apply
+
+
     """
     (target_id,
      redshift_redrock,
