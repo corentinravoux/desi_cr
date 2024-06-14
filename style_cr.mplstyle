@@ -1,10 +1,8 @@
-#Author: Edmond Chaussidon (CEA)
-
 ## FIGURE
 
 figure.titlesize   : medium     # size of the figure title
 figure.titleweight : normal     # weight of the figure title
-figure.figsize     : 11, 7      # figure size in inches
+figure.figsize     : 9, 6      # figure size in inches
 figure.dpi         : 100        # figure dots per inch
 figure.autolayout  : False      # When True, automatically adjust subplot
 figure.frameon     : True
@@ -31,7 +29,8 @@ axes.labelcolor             : black
 axes.prop_cycle             : cycler(color=['blue','orange','green', 'red', 'gold', 'purple', 'black', 'yellow', 'magenta', 'cyan', 'brown', 'grey'])
 #axes.prop_cycle             : cycler(color=['blue', 'red', 'green', 'gold', 'purple', 'black', 'yellow', 'magenta', 'cyan', 'brown', 'grey'])
 axes.formatter.use_mathtext : True # When True, use mathtext for scientific notation
-axes.labelsize : 12
+axes.labelsize : 15
+
 
 ## GRID
 
@@ -45,14 +44,14 @@ grid.alpha     : 0.8
 
 legend.fancybox  : True
 legend.facecolor : white
-legend.fontsize : 12
+legend.fontsize : 15
 
 ## TICKS
 
 xtick.direction : out
 ytick.direction : out
-xtick.labelsize : 12
-ytick.labelsize : 12
+xtick.labelsize : 15
+ytick.labelsize : 15
 xtick.major.size     : 4      # major tick size in points
 xtick.major.width    : 1      # major tick width in points
 ytick.major.size     : 4      # major tick size in points
